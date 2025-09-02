@@ -10,16 +10,13 @@ describe '[LAB CHECKER] Animal Refactoring Spec Requirements' do
   files.each do |file|
     content = File.read(file)
 
-    it "has at least 2 'it' blocks in #{File.basename(file)}" do
-      expect(content.scan(/it\s+['"]/).size).to be >= 2
+    it "has at least 3 'it' blocks in #{File.basename(file)}" do
+      expect(content.scan(/it\s+['"]/).size).to be >= 3
     end
 
     it "uses let or before hooks to DRY up repeated setup in #{File.basename(file)}" do
+      expect(content.scan(/let\s*\(|before\s*\(/).size).to be >= 1
       expect(content).to match(/let\s*\(|before\s*\(/), "Expected your specs to use let or before hooks to DRY up repeated setup."
     end
-  end
-
-  it 'does not change implementation code (reminder only)' do
-    expect(true).to be true
   end
 end
