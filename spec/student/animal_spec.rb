@@ -1,83 +1,57 @@
 # frozen_string_literal: true
 
 describe Animal do
-  it "returns the correct name" do
-    animal = Animal.new("Dog", 3, "Dog")
-    expect(animal.name).to eq("Dog")
+
+  def expect_name_and_age(animal, name, age)
+    expect(animal.name).to eq(name)
+    expect(animal.age).to eq(age)
   end
 
-  it "returns the correct age" do
-    animal = Animal.new("Dog", 3, "Dog")
-    expect(animal.age).to eq(3)
+  def expect_speak(animal, sound)
+    expect(animal.speak).to eq(sound)
   end
 
-  it "speaks correctly for a dog" do
-    animal = Animal.new("Dog", 3, "Dog")
-    expect(animal.speak).to eq("Woof!")
+  describe "dogs" do
+    let(:dog) { Animal.new("Dog", 3, "Dog") }
+
+    it "returns the correct name and age" do
+      expect_name_and_age(dog, "Dog", 3)
+    end
+
+    it "speaks" do
+      expect_speak(dog, "Woof!")
+    end
+
   end
 
-  it "returns the correct name for a cat" do
-    animal = Animal.new("Cat", 2, "Cat")
-    expect(animal.name).to eq("Cat")
+  describe "cats" do
+    let(:cat) { Animal.new("Cat", 2, "Cat") }
+
+    it "returns the correct name and age" do
+      expect_name_and_age(cat, "Cat", 2)
+    end
+
+    it "speaks" do
+      expect_speak(cat, "Meow!")
+    end
+
   end
 
-  it "returns the correct age for a cat" do
-    animal = Animal.new("Cat", 2, "Cat")
-    expect(animal.age).to eq(2)
+  describe "cows" do
+    let(:cow) { Animal.new("Bessie", 5, "Cow") }
+
+    it "speaks" do
+      expect_speak(cow, "Moo!")
+    end
+
   end
 
-  it "speaks correctly for a cat" do
-    animal = Animal.new("Cat", 2, "Cat")
-    expect(animal.speak).to eq("Meow!")
+  describe "unknown species" do
+    let(:nihar) { Animal.new("Mystery", 1) }
+
+    it "speaks correctly for an unknown species" do
+      expect_speak(nihar, "...")
+    end
   end
 
-  it "speaks correctly for a cow" do
-    animal = Animal.new("Bessie", 5, "Cow")
-    expect(animal.speak).to eq("Moo!")
-  end
-
-  it "speaks correctly for an unknown species" do
-    animal = Animal.new("Mystery", 1)
-    expect(animal.speak).to eq("...")
-  end
-
-  it "returns the correct name for a dog again" do
-    animal = Animal.new("Dog", 3, "Dog")
-    expect(animal.name).to eq("Dog")
-  end
-
-  it "returns the correct age for a dog again" do
-    animal = Animal.new("Dog", 3, "Dog")
-    expect(animal.age).to eq(3)
-  end
-
-  it "speaks correctly for a dog again" do
-    animal = Animal.new("Dog", 3, "Dog")
-    expect(animal.speak).to eq("Woof!")
-  end
-
-  it "returns the correct name for a cat again" do
-    animal = Animal.new("Cat", 2, "Cat")
-    expect(animal.name).to eq("Cat")
-  end
-
-  it "returns the correct age for a cat again" do
-    animal = Animal.new("Cat", 2, "Cat")
-    expect(animal.age).to eq(2)
-  end
-
-  it "speaks correctly for a cat again" do
-    animal = Animal.new("Cat", 2, "Cat")
-    expect(animal.speak).to eq("Meow!")
-  end
-
-  it "speaks correctly for a cow again" do
-    animal = Animal.new("Bessie", 5, "Cow")
-    expect(animal.speak).to eq("Moo!")
-  end
-
-  it "speaks correctly for an unknown species again" do
-    animal = Animal.new("Mystery", 1)
-    expect(animal.speak).to eq("...")
-  end
 end
