@@ -2,6 +2,9 @@
 
 describe Animal do
 
+  def expect_speak(animal, sound)
+    expect(animal.speak).to eq(sound)
+  end
   describe "dogs" do
     let(:dog) { Animal.new("Dog", 3, "Dog") }
 
@@ -10,8 +13,8 @@ describe Animal do
       expect(dog.age).to eq(3)
     end
 
-    it "speaks correctly for a dog" do
-      expect(dog.speak).to eq("Woof!")
+    it "speaks" do
+      expect_speak(dog, "Woof!")
     end
 
   end
@@ -25,8 +28,8 @@ describe Animal do
 
     end
 
-    it "speaks correctly for a cat" do
-      expect(cat.speak).to eq("Meow!")
+    it "speaks" do
+      expect_speak(cat, "Meow!")
     end
 
   end
@@ -34,8 +37,8 @@ describe Animal do
   describe "cows" do
     let(:cow) { Animal.new("Bessie", 5, "Cow") }
 
-    it "speaks correctly for a cow" do
-      expect(cow.speak).to eq("Moo!")
+    it "speaks" do
+      expect_speak(cow, "Moo!")
     end
 
   end
@@ -44,7 +47,7 @@ describe Animal do
     let(:nihar) { Animal.new("Mystery", 1) }
 
     it "speaks correctly for an unknown species" do
-      expect(nihar.speak).to eq("...")
+      expect_speak(nihar, "...")
     end
   end
 
