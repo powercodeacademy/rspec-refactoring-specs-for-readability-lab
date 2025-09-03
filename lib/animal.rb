@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
+require 'pry'
+
 class Animal
-  attr_reader :name, :age, :species
+  attr_reader :name, :age, :species, :mood
 
   def initialize(name, age, species = 'Unknown')
     @name = name
@@ -21,10 +23,6 @@ class Animal
 
   def birthday!
     @age += 1
-  end
-
-  def mood
-    @mood
   end
 
   def play!
