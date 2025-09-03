@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'rspec'
 gem 'pry'
+gem 'rspec'
 gem 'rubocop', require: false
