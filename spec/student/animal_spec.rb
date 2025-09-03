@@ -6,6 +6,7 @@ describe Animal do
   let(:cat) { Animal.new("Cat", 2, "Cat") }
   let(:cow) { Animal.new("Bessie", 5, "Cow") }
   let(:mystery) { Animal.new("Mystery", 1) }
+  
   it "returns the correct name" do
     expect(dog.name).to eq("Dog")
   end
